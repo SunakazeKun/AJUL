@@ -48,7 +48,7 @@ public final class SwingUtil {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         }
         catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException ex) {
-            System.err.print("Could not set System Look and Feel: " + ex);
+            System.err.println("Could not set System Look and Feel: " + ex);
         }
     }
     

@@ -24,8 +24,13 @@
 package com.aurumsmods.ajul.util;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.util.Objects;
+import java.util.jar.JarFile;
+import java.util.jar.Manifest;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
@@ -41,11 +46,17 @@ public class ResourceLoader {
     private final Class sourceClass;
     
     /**
+     * The cached manifest that was loaded from the JAR file that the source class belongs to.
+     */
+    private Manifest cachedManifest;
+    
+    /**
      * Constructs a new {@code ResourceLoader} using the specified source {@code Class}.
      * @param srcclass the source module class.
      */
     public ResourceLoader(Class srcclass) {
-        sourceClass = srcclass;
+        sourceClass = Objects.requireNonNull(srcclass);
+        cachedManifest = null;
     }
     
     /**
@@ -56,6 +67,41 @@ public class ResourceLoader {
      */
     public InputStream openStream(String path) {
         return sourceClass.getResourceAsStream(path);
+    }
+    
+    /**
+     * Tries to load and cache the manifest of the JAR file that the source class belongs to.
+     */
+    private void cacheManifest() {
+        if (cachedManifest == null) {
+            try {
+                String jarpath = sourceClass.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+                File file = new File(jarpath);
+                
+                if (file.isFile()) {
+                    cachedManifest = new JarFile(file).getManifest();
+                }
+            }
+            catch(URISyntaxException | IOException ex) { // URISyntaxException would never be thrown
+                cachedManifest = null;
+                System.err.println(ex);
+            }
+        }
+    }
+    
+    /**
+     * Returns the built date of the JAR file that the source class belongs to. The built date is specified in the JAR's default
+     * manifest file. If the manifest cannot be loaded for some reason, this returns a "(unknown builtdate)" instead.
+     * @return the built date of the JAR file.
+     */
+    public String getBuiltDate() {
+        cacheManifest();
+        String ret = "(unknown builtdate)";
+        
+        if (cachedManifest != null)
+            ret = cachedManifest.getMainAttributes().getValue("Built-Date");
+        
+        return ret;
     }
     
     /**
