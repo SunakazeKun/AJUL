@@ -62,11 +62,11 @@ public final class CRC16 {
      * Computes the CRC16 checksum over the given byte array. The initial value (seed) can be specified as well, although
      * it is usually set to 0. The resulting value is an unsigned short (lower 16-bits are used).
      * @param bytes the byte array.
-     * @param initial the initial value.
+     * @param crc the initial value.
      * @return the computed CRC16 checksum.
      */
-    public static int compute(byte[] bytes, int initial) {
-        return CRC16.compute(bytes, 0, bytes.length, initial);
+    public static int compute(byte[] bytes, int crc) {
+        return CRC16.compute(bytes, 0, bytes.length, crc);
     }
     
     /**
@@ -75,14 +75,14 @@ public final class CRC16 {
      * @param bytes the byte array.
      * @param off starting offset in the array.
      * @param len the number of bytes to cover.
-     * @param initial the initial value.
+     * @param crc the initial value.
      * @return the computed CRC16 checksum.
      */
-    public static int compute(byte[] bytes, int off, int len, int initial) {
+    public static int compute(byte[] bytes, int off, int len, int crc) {
         Objects.checkFromIndexSize(off, len, bytes.length);
-        int crc = initial;
+        int end = off + len;
         
-        while (off < off + len)
+        while (off < end)
             crc = (crc >>> 8) ^ CRC16_TABLE[(crc ^ bytes[off++]) & 0xFF];
         
         return crc & 0xFFFF;
