@@ -23,6 +23,7 @@
  */
 package com.aurumsmods.ajul.io;
 
+import com.aurumsmods.ajul.lang.IllegalInstantiationException;
 import java.nio.ByteOrder;
 import java.util.Objects;
 
@@ -33,7 +34,7 @@ import java.util.Objects;
  */
 public final class ByteOrderUtil {
     private ByteOrderUtil() {
-        throw new IllegalStateException("Instantiation of this class is forbidden!");
+        throw new IllegalInstantiationException();
     }
     
     /**

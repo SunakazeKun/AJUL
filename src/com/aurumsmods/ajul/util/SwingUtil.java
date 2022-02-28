@@ -23,6 +23,7 @@
  */
 package com.aurumsmods.ajul.util;
 
+import com.aurumsmods.ajul.lang.IllegalInstantiationException;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -34,7 +35,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public final class SwingUtil {
     private SwingUtil() {
-        throw new IllegalStateException("Instantiation of this class is forbidden!");
+        throw new IllegalInstantiationException();
     }
     
     /**

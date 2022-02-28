@@ -31,7 +31,7 @@ package com.aurumsmods.ajul.lang;
  */
 public final class IEEE754Half {
     private IEEE754Half() {
-        throw new IllegalStateException("Instantiation of this class is forbidden!");
+        throw new IllegalInstantiationException();
     }
     
     /**

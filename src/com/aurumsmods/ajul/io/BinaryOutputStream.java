@@ -222,7 +222,7 @@ public final class BinaryOutputStream extends FilterOutputStream implements Data
     
     /**
      * Reimplementation of {@link java.io.DataOutputStream#writeUTF(String, java.io.DataOutput)} with public access.
-     * @param str the string to be written
+     * @param str the string to be written.
      * @param out the data output.
      * @return the number of written bytes.
      * @throws IOException if any I/O exception occurs.

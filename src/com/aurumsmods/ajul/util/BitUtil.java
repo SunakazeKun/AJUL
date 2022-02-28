@@ -23,13 +23,15 @@
  */
 package com.aurumsmods.ajul.util;
 
+import com.aurumsmods.ajul.lang.IllegalInstantiationException;
+
 /**
  * A utility class that provides helper functions for common bitwise operations and manipulations.
  * @author Aurum
  */
 public final class BitUtil {
     private BitUtil() {
-        throw new IllegalStateException("Instantiation of this class is forbidden!");
+        throw new IllegalInstantiationException();
     }
     
     /**

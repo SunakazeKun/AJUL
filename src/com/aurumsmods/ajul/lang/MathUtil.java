@@ -29,11 +29,11 @@ package com.aurumsmods.ajul.lang;
  */
 public final class MathUtil {
     private MathUtil() {
-        throw new IllegalStateException("Instantiation of this class is forbidden!");
+        throw new IllegalInstantiationException();
     }
     
     /**
-     * The golden ratio, represented by the Greek letter phi.
+     * The golden ratio.
      */
     public static final double PHI = 1.618033988749895;
     
@@ -56,6 +56,28 @@ public final class MathUtil {
      * The natural logarithm of 2.
      */
     public static final double LN_2 = 0.693147180559945;
+    
+    /**
+     * Calculates the fibonacci number for the given natural number.
+     * @param n the natural number.
+     * @return the fibonacci number.
+     */
+    public static long fibonacci(int n) {
+        if (n < 1)
+            return 0;
+        
+        long a = 1;
+        long b = 0;
+        long tmp;
+        
+        for (int i = 1 ; i < n ; i++) {
+            tmp = b;
+            b = a;
+            a += tmp;
+        }
+        
+        return a;
+    }
     
     /**
      * Clamps a value beween a lower and an upper bound. If {@code max} is less than {@code min}, the two values are swapped.
@@ -139,5 +161,53 @@ public final class MathUtil {
         else if (val > max)
             return max;
         return val;
+    }
+    
+    /**
+     * Clamps the given value between 0.0f and 1.0f.
+     * @param val the value to clamp.
+     * @return the clamped value.
+     */
+    public static float clamp01(float val) {
+        if (val < 0.0f)
+            return 0.0f;
+        else if (val > 1.0f)
+            return 1.0f;
+        return val;
+    }
+    
+    /**
+     * Clamps the given value between 0.0 and 1.0.
+     * @param val the value to clamp.
+     * @return the clamped value.
+     */
+    public static double clamp01(double val) {
+        if (val < 0.0f)
+            return 0.0f;
+        else if (val > 1.0f)
+            return 1.0f;
+        return val;
+    }
+    
+    /**
+     * Calculates the linear interpolation for two input numbers and a parameter.
+     * @param a the first number.
+     * @param b the second number.
+     * @param t the parameter (expected to be a number in the closed interval [0, 1])
+     * @return the linear interpolation.
+     */
+    public static float lerp(float a, float b, float t) {
+        return (1.0f - t) * a + t * b;
+    }
+    
+    /**
+     * Calculates the linear interpolation for two input numbers and a parameter.
+     * @param a the first number.
+     * @param b the second number.
+     * @param t the parameter, expected to be a number in the closed interval [0, 1]
+     * @return the linear interpolation.
+     */
+    public static double lerp(double a, double b, double t) {
+        return (1.0 - t) * a + t * b;
     }
 }

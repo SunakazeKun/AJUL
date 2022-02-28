@@ -34,7 +34,7 @@ import java.util.Objects;
  */
 public final class BitConverter {
     private BitConverter() {
-        throw new IllegalStateException("Instantiation of this class is forbidden!");
+        throw new IllegalInstantiationException();
     }
     
     /**

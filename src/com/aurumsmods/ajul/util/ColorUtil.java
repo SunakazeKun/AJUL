@@ -23,13 +23,15 @@
  */
 package com.aurumsmods.ajul.util;
 
+import com.aurumsmods.ajul.lang.IllegalInstantiationException;
+
 /**
  * A utility class that provides methods to convert between ARGB and other non-default color formats.
  * @author Aurum
  */
 public final class ColorUtil {
     private ColorUtil() {
-        throw new IllegalStateException("Instantiation of this class is forbidden!");
+        throw new IllegalInstantiationException();
     }
     
     /**
