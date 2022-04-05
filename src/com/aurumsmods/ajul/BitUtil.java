@@ -21,18 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.aurumsmods.ajul.util;
-
-import com.aurumsmods.ajul.lang.IllegalInstantiationException;
+package com.aurumsmods.ajul;
 
 /**
  * A utility class that provides helper functions for common bitwise operations and manipulations.
  * @author Aurum
  */
 public final class BitUtil {
-    private BitUtil() {
-        throw new IllegalInstantiationException();
-    }
+    private BitUtil() { throw new IllegalStateException(); }
     
     /**
      * Tests whether the specified bit in {@code val} is set or not. Returns {@code true} if set, {@code false} if not.

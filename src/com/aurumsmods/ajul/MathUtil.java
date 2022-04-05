@@ -21,16 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.aurumsmods.ajul.lang;
+package com.aurumsmods.ajul;
 
 /**
  * A utility class that provides new mathematical functions and constants.
  * @author Aurum
  */
 public final class MathUtil {
-    private MathUtil() {
-        throw new IllegalInstantiationException();
-    }
+    private MathUtil() { throw new IllegalStateException(); }
     
     /**
      * The golden ratio.

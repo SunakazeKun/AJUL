@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.aurumsmods.ajul.util;
+package com.aurumsmods.ajul;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

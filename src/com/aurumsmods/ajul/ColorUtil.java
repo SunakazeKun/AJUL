@@ -21,18 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.aurumsmods.ajul.util;
-
-import com.aurumsmods.ajul.lang.IllegalInstantiationException;
+package com.aurumsmods.ajul;
 
 /**
  * A utility class that provides methods to convert between ARGB and other non-default color formats.
  * @author Aurum
  */
 public final class ColorUtil {
-    private ColorUtil() {
-        throw new IllegalInstantiationException();
-    }
+    private ColorUtil() { throw new IllegalStateException(); }
     
     /**
      * Converts the specified 16-bit BGR555 color into a 32-bit ARGB color. The alpha channel value is always set to 255.

@@ -21,9 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.aurumsmods.ajul.util;
+package com.aurumsmods.ajul;
 
-import com.aurumsmods.ajul.lang.IllegalInstantiationException;
 import java.util.Objects;
 
 /**
@@ -32,9 +31,7 @@ import java.util.Objects;
  * @author Aurum
  */
 public final class ArrayUtil {
-    private ArrayUtil() {
-        throw new IllegalInstantiationException();
-    }
+    private ArrayUtil() { throw new IllegalStateException(); }
     
     /**
      * Retrieves the index of the given value in the array using linear search. If the value cannot be found, -1 is returned

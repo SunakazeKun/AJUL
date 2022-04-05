@@ -21,9 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.aurumsmods.ajul.util;
+package com.aurumsmods.ajul;
 
-import com.aurumsmods.ajul.lang.IllegalInstantiationException;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -34,9 +33,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author Aurum
  */
 public final class SwingUtil {
-    private SwingUtil() {
-        throw new IllegalInstantiationException();
-    }
+    private SwingUtil() { throw new IllegalStateException(); }
     
     /**
      * Attempts to load and set the system's look and feel to be used for any form. Any potential exception that may be thrown

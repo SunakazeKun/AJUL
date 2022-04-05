@@ -21,9 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.aurumsmods.ajul.util;
+package com.aurumsmods.ajul;
 
-import com.aurumsmods.ajul.lang.IllegalInstantiationException;
 import java.util.Objects;
 
 /**
@@ -31,9 +30,7 @@ import java.util.Objects;
  * @author Aurum
  */
 public final class CRC16 {
-    private CRC16() {
-        throw new IllegalInstantiationException();
-    }
+    private CRC16() { throw new IllegalStateException(); }
     
     /**
      * The CRC16 lookup table.
